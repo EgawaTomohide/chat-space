@@ -1,0 +1,112 @@
+* {
+  box-sizing: border-box;
+}
+
+
+
+.chat-main{
+  width: calc(100vw - 300px);
+  height: 100vh;
+  float: right;
+  &_header{
+    border-bottom: 1px solid #eeeeee;
+    height: 100px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 40px;
+    &_main__group{
+      padding-top: 35px;
+        &_mame{
+          color: #333333;
+          font-size: 20px;
+        }
+        &_mamber{
+          padding-top: 15px;
+          color: #999999;
+          font-size: 12px;
+        }
+    }
+    a{
+      text-decoration: none;
+      font-size: 16px;
+      text-align: center;
+      line-height: 40px;
+      width: 72px;
+      height: 40px;
+      border: 1px solid;
+      margin-top: 28px;
+    }
+  }
+
+
+  &_messages{
+    background-color:#fafafa ;
+    height:calc(100vh - 190px);
+    width: 100%;
+    padding: 35px 0 0 40px;
+
+    &_message{
+      margin-bottom: 46px;
+      &_sender{
+        display: flex;
+        padding-bottom: 12px;
+        &_name{
+          font-weight: bold;
+          color: #333333;
+          font-size: 16px;
+        }
+        &_date{
+          color: #434a54;
+          font-size: 14px;
+        }
+      }
+      &_text{
+        color: #999999;
+        font-size: 14px;
+      }
+    }
+  }
+  &_message_form{
+    background-color: #d2d2d2;
+    height: 90px;
+    width: 100%;
+    padding: 20px 40px 20px 40px;
+    display: flex;
+
+    .new_message{
+      display: flex;
+    }
+    .input-box{
+      background-color: white;
+      width: 100%;
+      height: 50px;
+      position: relative;
+      &__text{
+        width: 100%;
+        height: 50px;
+      }
+      &__image{
+        position: absolute;
+        top: 15px;
+        right: 10px;
+        &__file{
+          display: none;
+          width: 800px;
+          height: 50px;
+        }
+      }
+      
+    }
+    .submit-btn{
+      background-color: gray;
+      height: 50px;
+      width: 100px;
+      margin-left: 15px;
+      color: white;
+      cursor: pointer;
+    }
+
+  }
+}
+
