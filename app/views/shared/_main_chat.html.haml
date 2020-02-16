@@ -1,0 +1,27 @@
+.chat-main
+  .chat-main_header
+    .chat-main_header_main__group
+      .chat-main_header_main_group_mame
+      test
+      .chat-main_header_main_group_mamber
+      Member:test
+    =link_to "#",class:"edit-btn" do
+      Edit
+  .chat-main_messages
+    .chat-main_messages_message
+      .chat-main_messages_message_sender
+        .chat-main_messages_message_sender_name
+        test
+        .chat-main_messages_message_sender_date
+          2020/02/04(mon) 17:20:20
+      .chat-main_messages_message__text
+        test test %test
+
+  .chat-main_message_form
+    = form_for [@group, @message] do |f|
+      .input-box
+        = f.text_field :content, class: "input-box__text", placeholder: 'type a message'
+        = f.label :image, class: "input-box__image" do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: "input-box__image__file"
+      = f.submit 'Send', class: "submit-btn"
