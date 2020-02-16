@@ -9,7 +9,11 @@
       =link_to edit_user_path(current_user),class: "contents__btn" do
         =icon('fas','cog')
   .chat-side-groups
-    .chat-side-groups_list
-      .chat-side-groups_list_name
-        test
-      .chat-side-groups_list_preview
+    - current_user.groups.each do |group|
+      .chat-side-groups_list
+        = link_to group_messages_path(group) do
+          .chat-side-groups_list_name
+            = group.name
+          .chat-side-groups_list_preview
+            = group.show_last_message
+       
