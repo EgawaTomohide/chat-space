@@ -16,15 +16,7 @@
           2020/02/04(mon) 17:20:20
       .chat-main_messages_message__text
         test test %test
-  -# .chat-main_message_form
-  -#   %form.new_message
-  -#   .input-box
-  -#     %input{type: "text",class: "input-box__text",placeholder: "type a message"}
-  -#     %label{class: "input-box__image"}
-  -#       =icon('fas', 'image')
-  -#       %input{type:"file",class: "input-box__image__file"}
-  -#   %input{type: "submit",class: "submit-btn",value: "send"}
-    
+
   .chat-main_message_form
     = form_for [@group, @message] do |f|
       .input-box
