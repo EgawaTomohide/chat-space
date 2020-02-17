@@ -7,15 +7,9 @@
       Member:test
     =link_to "#",class:"edit-btn" do
       Edit
-  .chat-main_messages
-    .chat-main_messages_message
-      .chat-main_messages_message_sender
-        .chat-main_messages_message_sender_name
-        test
-        .chat-main_messages_message_sender_date
-          2020/02/04(mon) 17:20:20
-      .chat-main_messages_message__text
-        test test %test
+  .chat-main_messages   
+    = render partial:'shared/message',collection: @messages 
+    
 
   .chat-main_message_form
     = form_for [@group, @message] do |f|
