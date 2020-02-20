@@ -58,4 +58,6 @@ gem 'haml-rails'
 gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
-#gem 'turbolinks', '~> 5'
+group :production do
+  gem 'unicorn', '5.4.1'
+end
