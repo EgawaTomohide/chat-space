@@ -53,3 +53,8 @@ end
 after_fork do |_server, _worker|
   defined?(ActiveRecord::Base) && ActiveRecord::Base.establish_connection
 end
+
+def self.search(input, id)
+  return nil if input == ""
+  User.where(['name LIKE ?', "%#{input}%"] ).where.not(id: id).limit(10)
+end
