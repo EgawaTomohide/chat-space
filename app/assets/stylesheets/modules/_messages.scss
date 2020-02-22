@@ -36,6 +36,7 @@
       height: 40px;
       border: 1px solid;
       margin-top: 28px;
+      color: lightskyblue;
     }
   }
 
@@ -58,8 +59,9 @@
           font-size: 16px;
         }
         &_date{
-          color: #434a54;
+          color: gray;
           font-size: 14px;
+          padding-left: 5px;
         }
       }
       &_text{
@@ -101,7 +103,7 @@
       
     }
     .submit-btn{
-      background-color: gray;
+      background-color: deepskyblue;;
       height: 50px;
       width: 100px;
       margin-left: 15px;
