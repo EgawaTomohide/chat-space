@@ -1,21 +1,18 @@
 $(function(){  
   //$(function(){});の閉じタグの直上(処理の最後)に以下のように追記
-  if (document.location.href.match(/\/groups\/\d+\/messages/)) {
-    setInterval(reloadMessages, 7000);
-  }
   function buildHTML(message){
    if ( message.image ) {
      var html =
-      `<div class="message" data-message-id=${message.id}>
-         <div class="upper-message">
-           <div class="upper-message__user-name">
+      `<div class="chat-main_messages_message" data-message-id=${message.id}>
+         <div class="chat-main_messages_message_sender">
+           <div class="chat-main_messages_message_sender_name">
              ${message.user_name}
            </div>
-           <div class="upper-message__date">
+           <div class="chat-main_messages_message_sender_date">
              ${message.created_at}
            </div>
          </div>
-         <div class="lower-message">
+         <div class="chat-main_messages_message__text">
            <p class="lower-message__content">
              ${message.content}
            </p>
@@ -25,21 +22,21 @@ $(function(){
      return html;
    } else {
      var html =
-      `<div class="message" data-message-id=${message.id}>
-         <div class="upper-message">
-           <div class="upper-message__user-name">
-             ${message.user_name}
-           </div>
-           <div class="upper-message__date">
-             ${message.created_at}
-           </div>
-         </div>
-         <div class="lower-message">
-           <p class="lower-message__content">
-             ${message.content}
-           </p>
-         </div>
-       </div>`
+      `<div class="chat-main_messages_message" data-message-id=${message.id}>
+        <div class="chat-main_messages_message_sender">
+          <div class="chat-main_messages_message_sender_name">
+            ${message.user_name}
+          </div>
+          <div class="chat-main_messages_message_sender_date">
+            ${message.created_at}
+          </div>
+        </div>
+        <div class="chat-main_messages_message__text">
+          <p class="lower-message__content">
+            ${message.content}
+          </p>
+        </div>
+      </div>`
      return html;
    };
  }
@@ -69,8 +66,9 @@ $('#new_message').on('submit', function(e){
 
 });
 var reloadMessages = function() {
+  // console.log("hello")
   //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
-  last_message_id = $('.message:last').data("message-id");
+  var last_message_id = $('.chat-main_messages_message:last').data("message-id");
   $.ajax({
     //ルーティングで設定した通り/groups/id番号/api/messagesとなるよう文字列を書く
     url: "api/messages",
@@ -89,13 +87,15 @@ var reloadMessages = function() {
         insertHTML += buildHTML(message)
       });
       //メッセージが入ったHTMLに、入れ物ごと追加
-      $('.messages').append(insertHTML);
-      $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
+      $('.chat-main_messages').append(insertHTML);
+      $('.chat-main_messages').animate({ scrollTop: $('.chat-main_messages')[0].scrollHeight});
     }
   })
   .fail(function() {
     alert('error');
   });
 };
-
+if (document.location.href.match(/\/groups\/\d+\/messages/)) {
+  setInterval(reloadMessages, 7000);
+}
 });

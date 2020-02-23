@@ -2,9 +2,12 @@
   .chat-main_header
     .chat-main_header_main__group
       .chat-main_header_main__group_mame
-        test
-      .chat-main_header_main__group_mamber
-        Member:test
+        =@group.name
+      %ul.chat-main_header_main__group_mamber
+        Member : 
+        %li.chat-main_header_main__group_mamber_rist
+        - @group.users.each do |user|
+          = user.name      
     =link_to edit_group_path(@group),class:"edit-btn" do
       Edit
   .chat-main_messages   

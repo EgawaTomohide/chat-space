@@ -22,9 +22,14 @@
           font-size: 20px;
         }
         &_mamber{
-          padding-top: 15px;
+          display: flex;
+          padding-top: 10px;
           color: #999999;
           font-size: 12px;
+          &_rist{
+            // margin: 0;
+            // padding: 0;
+          }
         }
     }
     a{
